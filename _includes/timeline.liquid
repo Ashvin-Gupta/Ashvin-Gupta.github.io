@@ -1,0 +1,184 @@
+<div class="timeline">
+  {% if site.news != blank %}
+    {% assign news_size = site.news | size %}
+    <div
+      class="timeline-container"
+      {% if include.limit and page.announcements.scrollable and news_size > 3 %}
+        style="max-height: 60vw; overflow-y: auto;"
+      {% endif %}
+    >
+      {% assign news = site.news | reverse %}
+      {% if include.limit and page.announcements.limit %}
+        {% assign news_limit = page.announcements.limit %}
+      {% else %}
+        {% assign news_limit = news_size %}
+      {% endif %}
+      
+      {% for item in news limit: news_limit %}
+        <div class="timeline-item">
+          <div class="timeline-marker">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-content">
+            <div class="timeline-date">{{ item.date | date: '%B %d, %Y' }}</div>
+            <div class="timeline-text">
+              {% if item.inline %}
+                {{ item.content | remove: '<p>' | remove: '</p>' | emojify }}
+              {% else %}
+                <h4 class="timeline-title">
+                  <a href="{{ item.url | relative_url }}">{{ item.title }}</a>
+                </h4>
+                <div class="timeline-description">
+                  {{ item.content | truncate: 200 }}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p>No timeline events so far...</p>
+  {% endif %}
+</div>
+
+<style>
+.timeline {
+  position: relative;
+  padding: 20px 0;
+}
+
+.timeline-container {
+  position: relative;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 30px;
+  padding-left: 40px;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #007bff;
+  border-radius: 50%;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px #007bff;
+}
+
+.timeline-item:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 9px;
+  top: 20px;
+  bottom: -30px;
+  width: 2px;
+  background-color: #e9ecef;
+}
+
+.timeline-content {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.timeline-content:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+}
+
+.timeline-date {
+  font-size: 0.9rem;
+  color: #6c757d;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.timeline-title {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.timeline-title a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.timeline-title a:hover {
+  color: #0056b3;
+  text-decoration: underline;
+}
+
+.timeline-text {
+  color: #495057;
+  line-height: 1.6;
+}
+
+.timeline-description {
+  margin-top: 10px;
+  font-size: 0.95rem;
+  color: #6c757d;
+}
+
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .timeline-content {
+    background: #2d3748;
+    color: #e2e8f0;
+  }
+  
+  .timeline-date {
+    color: #a0aec0;
+  }
+  
+  .timeline-text {
+    color: #e2e8f0;
+  }
+  
+  .timeline-description {
+    color: #a0aec0;
+  }
+  
+  .timeline-item:not(:last-child)::before {
+    background-color: #4a5568;
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .timeline-item {
+    padding-left: 30px;
+  }
+  
+  .timeline-marker {
+    width: 15px;
+  }
+  
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+  }
+  
+  .timeline-item:not(:last-child)::before {
+    left: 7px;
+  }
+  
+  .timeline-content {
+    padding: 15px;
+  }
+}
+</style> 
