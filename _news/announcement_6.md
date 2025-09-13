@@ -1,8 +1,8 @@
 ---
 layout: post
-date: 2019-07-01
+date: 2023-09-25
 inline: true
 related_posts: false
 ---
 
-Hymers College, Hull
+Research Engineer at Oxford Hearbeat
