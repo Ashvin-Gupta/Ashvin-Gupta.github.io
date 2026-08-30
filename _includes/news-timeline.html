@@ -1,0 +1,52 @@
+{% if site.data.news and site.data.news.size > 0 %}
+  {% assign sortable = "" %}
+  {% for item in site.data.news %}
+    {% assign clean = item.date | replace: ",", "" | strip %}
+    {% assign parts = clean | split: " " %}
+    {% if parts.size >= 2 %}
+      {% assign month_raw = parts | first | slice: 0, 3 | downcase %}
+      {% assign year = parts | last %}
+    {% else %}
+      {% assign month_raw = "jan" %}
+      {% assign year = parts | first %}
+    {% endif %}
+    {% assign month_num = "00" %}
+    {% case month_raw %}
+      {% when "jan" %}{% assign month_num = "01" %}
+      {% when "feb" %}{% assign month_num = "02" %}
+      {% when "mar" %}{% assign month_num = "03" %}
+      {% when "apr" %}{% assign month_num = "04" %}
+      {% when "may" %}{% assign month_num = "05" %}
+      {% when "jun" %}{% assign month_num = "06" %}
+      {% when "jul" %}{% assign month_num = "07" %}
+      {% when "aug" %}{% assign month_num = "08" %}
+      {% when "sep" %}{% assign month_num = "09" %}
+      {% when "oct" %}{% assign month_num = "10" %}
+      {% when "nov" %}{% assign month_num = "11" %}
+      {% when "dec" %}{% assign month_num = "12" %}
+    {% endcase %}
+    {% assign sortable = sortable | append: year | append: month_num | append: "-" | append: forloop.index0 | append: "," %}
+  {% endfor %}
+  {% assign keys = sortable | split: "," | sort | reverse %}
+
+<section class="news-timeline">
+  <h2>News</h2>
+  <ol class="news-timeline__list">
+    {% for key in keys %}
+      {% if key == "" %}{% continue %}{% endif %}
+      {% assign idx = key | split: "-" | last | plus: 0 %}
+      {% assign item = site.data.news[idx] %}
+      <li class="news-timeline__item">
+        <span class="news-timeline__date">{{ item.date }}</span>
+        <div class="news-timeline__body">
+          {% if item.link %}
+            <a href="{{ item.link }}">{{ item.text | markdownify | remove: '<p>' | remove: '</p>' }}</a>
+          {% else %}
+            {{ item.text | markdownify | remove: '<p>' | remove: '</p>' }}
+          {% endif %}
+        </div>
+      </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endif %}

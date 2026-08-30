@@ -9,22 +9,6 @@ redirect_from:
 
 {% include base_path %}
 
-Education
-======
-* Ph.D. in AI for Healthcare, Imperial College London (in progress)
-  * AI for Healthcare CDT
-  * SPIKE group, supervised by Professor Alessandra Russo
+<p><a href="{{ base_path }}/files/cv.pdf">Download CV (PDF)</a></p>
 
-Research interests
-======
-* Machine learning for electronic health records
-* Cancer diagnosis and management
-* Computational models of clinical guidelines
-
-Publications
-======
-<ul>
-  {% for post in site.publications reversed %}
-    {% include publication-list-item.html %}
-  {% endfor %}
-</ul>
+<iframe src="{{ base_path }}/files/cv.pdf" title="Ashvin Gupta CV" style="width: 100%; height: 80vh; border: 1px solid var(--global-border-color);"></iframe>

@@ -8,8 +8,11 @@ redirect_from:
   - /about.html
 ---
 
-Hello! I'm Ashvin, a PhD student at [Imperial College London](https://www.imperial.ac.uk/) on the [AI for Healthcare CDT](https://ai4health.io/) and part of the [SPIKE](https://spike.doc.ic.ac.uk/) group under Professor Alessandra Russo.
+I am a third-year PhD student at [Imperial College London](https://www.imperial.ac.uk/) on the [AI for Healthcare CDT](https://ai4health.io/) and part of the [SPIKE](https://spike.doc.ic.ac.uk/) group under [Professor Alessandra Russo](https://profiles.imperial.ac.uk/a.russo).
 
-My research focuses on diagnosing multiple cancers from electronic health record (EHR) data using machine learning, as well as building a computational model of the NICE guidelines for cancer management.
+My research focuses on representation learning from electronic health records (EHR) for early disease prediction tasks, using a variety of NLP techniques. 
 
-This site is a place to share notes on the projects I am working on, life as a PhD student, and lessons from the modules I assist with.
+Before persuing my PhD in AI, I worked at [Oxford Heartbeat](https://www.oxfordheartbeat.com/) as a research engineer. I have also previously completed an internship at [Bank of America](https://www.linkedin.com/company/bank-of-america/posts/?feedView=all).
+
+{% include news-timeline.html %}
+
