@@ -339,7 +339,7 @@ category_archive:
   type: liquid
   path: /categories/
 tag_archive:
-  type: liquid
+  type: false
   path: /tags/
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:

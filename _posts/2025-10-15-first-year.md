@@ -4,9 +4,6 @@ title: "First year of PhD"
 date: 2025-10-15
 permalink: /posts/2025/10/first-year/
 excerpt: "Learnings from my first year"
-tags:
-  - phd
-  - machine learning
 ---
 
 Going into a machine learning PhD is a huge decision. Committing to four years of research is a big commitment and you constantly have doubts, moments of wondering if you've made the right choice and moments of feeling like you can't do it. Talking to my friends, these feelings are all natural. The PhD is all about learning, and I feel like the first year is all about learning how to learn in this research setting. So with that in mind, here are some of few tips that I've picked up so far on how to make the most of it all.
