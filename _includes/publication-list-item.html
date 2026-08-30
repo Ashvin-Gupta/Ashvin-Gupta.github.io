@@ -1,0 +1,14 @@
+<li style="margin-bottom: 1.25em;">
+  {% if post.paperurl %}
+    <a href="{{ post.paperurl }}">{{ post.title }}</a>
+  {% else %}
+    {{ post.title }}
+  {% endif %}
+  {% if post.authors %}
+    {% assign authors = post.authors | replace: "Ashvin Gupta", "<strong>Ashvin Gupta</strong>" | replace: "A. Gupta", "<strong>A. Gupta</strong>" %}
+    <br>{{ authors }}
+  {% endif %}
+  {% if post.venue %}
+    <br><i>{{ post.venue }}</i>
+  {% endif %}
+</li>

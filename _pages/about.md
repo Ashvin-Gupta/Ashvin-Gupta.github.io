@@ -1,4 +1,5 @@
 ---
+# This is the homepage. Edit the text below the --- to change the main page.
 permalink: /
 title: "About"
 author_profile: true

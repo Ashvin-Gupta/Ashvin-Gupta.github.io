@@ -22,7 +22,7 @@ repository               : "Ashvin-Gupta/Ashvin-Gupta.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.png"
+  avatar           : "profile.png" # replace images/profile.png to change your photo
   name             : "Ashvin Gupta"
   pronouns         : # example: "she/her"  
   bio              : "PhD student in AI for Healthcare"
@@ -34,7 +34,7 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL
-  googlescholar    : # URL
+  googlescholar    : "https://scholar.google.com/citations?user=F4gQgPcAAAAJ&hl=en"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : # URL

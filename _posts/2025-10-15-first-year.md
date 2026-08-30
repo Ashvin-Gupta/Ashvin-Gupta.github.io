@@ -1,4 +1,5 @@
 ---
+# Blog posts live in _posts/. Add a new file named YYYY-MM-DD-title.md
 title: "First year of PhD"
 date: 2025-10-15
 permalink: /posts/2025/10/first-year/
