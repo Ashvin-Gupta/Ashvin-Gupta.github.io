@@ -36,3 +36,82 @@ td {
 tr, td, th {
   vertical-align: middle;
 }
+
+/* Journal-style tables, side by side */
+.table-pair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  align-items: flex-start;
+  margin: 1.5em 0;
+}
+
+.table-pair figure {
+  flex: 1 1 16rem;
+  margin: 0;
+  min-width: 0;
+}
+
+.table-pair figcaption {
+  margin: 0 0 0.75em;
+  font-size: 0.9em;
+  line-height: 1.4;
+}
+
+table.booktabs {
+  width: 100%;
+  margin: 0;
+  border: none;
+  border-collapse: collapse;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 0.9em;
+  line-height: 1.4;
+
+  thead {
+    background: transparent;
+    border: none;
+  }
+
+  th,
+  td {
+    border: none;
+    padding: 0.35em 0.7em;
+    vertical-align: middle;
+  }
+
+  th {
+    font-weight: 700;
+  }
+
+  thead tr:first-child th {
+    border-top: 2px solid currentColor;
+    padding-top: 0.5em;
+  }
+
+  thead tr:last-child th {
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 0.5em;
+  }
+
+  tbody td {
+    border-bottom: none;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 0.5em;
+  }
+
+  .cmidrule {
+    border-bottom: 1px solid currentColor;
+  }
+
+  .num {
+    text-align: right;
+    white-space: nowrap;
+  }
+
+  th.num {
+    text-align: center;
+  }
+}
