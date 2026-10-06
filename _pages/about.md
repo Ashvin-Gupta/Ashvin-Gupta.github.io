@@ -14,5 +14,7 @@ My research focuses on representation learning from electronic health records (E
 
 Before persuing my PhD in AI, I worked at [Oxford Heartbeat](https://www.oxfordheartbeat.com/) as a research engineer. I have also previously completed an internship at [Bank of America](https://www.linkedin.com/company/bank-of-america/posts/?feedView=all).
 
+Outside of research, I love to play sport, anything from running, going to the gym, tennis, lacrosse and cricket and am an avid fan of the Indian cricket team. 
+
 {% include news-timeline.html %}
 
