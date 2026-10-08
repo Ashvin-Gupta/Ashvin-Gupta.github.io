@@ -15,13 +15,13 @@ Foundation models for structured electronic health record (EHR) data have predom
 [Discrete diffusion language models](https://arxiv.org/abs/2406.07524) use the principles from diffusion models applied to images, but on discrete tokens instead. As they learn to generate tokens over a certian number of steps, they might be well-suited for EHR modelling and in this work, we benchmark [block diffusion](https://arxiv.org/abs/2503.09573) (BD) EHR models in comparison to AR models. 
 
 ## Method
-EHR is represented as a discrete token sequence \(x = (x\_1, \ldots, x\_L)\), where each token corresponds to a clinical event, quantised measurement, demographic attribute, or discretised time interval from a vocabulary \(\mathcal{V}\). Both AR and BD models operate on this same temporally ordered sequence. For an understanding of how block diffusion works, I would recommend reading [Kuleshov's blog](https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/), but the basic idea is that during training, a fixed block size \(B\) is chosen, and within a sequence of tokens, a certain number of tokens within each block are replaced with a `[MASK]` token depending on a noise level \(t\). The model predicts the noise level, and during inference, tokens of length \(B\) can be generated in parallel over a number of steps, \(S\). As inference is memory-bound rather than compute-bound, the parallel nature of discrete diffusion models offers an advantage here.
+EHR is represented as a discrete token sequence $x = (x\_1, \ldots, x\_L)$, where each token corresponds to a clinical event, quantised measurement, demographic attribute, or discretised time interval from a vocabulary $\mathcal{V}$. Both AR and BD models operate on this same temporally ordered sequence. For an understanding of how block diffusion works, I would recommend reading [Kuleshov's blog](https://kuleshov-group.github.io/blog/blog/2026/how-to-build-a-diffusion-language-model/), but the basic idea is that during training, a fixed block size $B$ is chosen, and within a sequence of tokens, a certain number of tokens within each block are replaced with a `[MASK]` token depending on a noise level $t$. The model predicts the noise level, and during inference, tokens of length $B$ can be generated in parallel over a number of steps, $S$. As inference is memory-bound rather than compute-bound, the parallel nature of discrete diffusion models offers an advantage here.
 
 
-We train separate BD models with block sizes \(B \in \\{2, 4, 8, 16, 32, 64, 128\\}\) and assess:
-- How AUROC and AUPRC vary over a varying \(S/B\) denoising budget
+We train separate BD models with block sizes $B \in \\{2, 4, 8, 16, 32, 64, 128\\}$ and assess:
+- How AUROC and AUPRC vary over a varying $S/B$ denoising budget
 - How AUROC and AUPRC vary when applying a linear probe on the last hidden state for AR vs BD
-- How AUROC, AURPC and time vary when the denoising budget \(S/B\) is fixed at 0.5
+- How AUROC, AURPC and time vary when the denoising budget $S/B$ is fixed at 0.5
 - Whether any alternative decoding strategies, including [confidence-based unmasking](https://arxiv.org/abs/2508.15487) and [ReMDM-style unmasking](https://arxiv.org/abs/2503.00307) help with rollout performance
 
 We conduct our analysis using the MIMIC-IV dataset with ICU mortality, ICU readmission, ICU admission and hospital mortality as downstream tasks.
